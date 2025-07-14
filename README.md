@@ -1,4 +1,3 @@
-```markdown
 # File Deduplication Tool (文件去重工具)
 
 ## 项目概述
