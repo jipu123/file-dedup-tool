@@ -1,0 +1,59 @@
+{
+  "name": "file-dedup-tool",
+  "version": "1.0.0",
+  "description": "文件去重管理工具",
+  "main": "server/app.js",
+  "bin": "server/app.js",
+  "scripts": {
+    "server:dev": "nodemon server/app.js",
+    "client:dev": "cd client && npm run dev",
+    "client:build": "cd client && npm run build",
+    "build:exe": "pkg . -t node16-win-x64,node16-linux-x64,node16-linux-arm64,node16-alpine-x64,node16-alpine-arm64,node16-linuxstatic-x64 -o dist/file-dedup-tool",
+    "build:win": "pkg . -t node16-win-x64 -o dist/file-dedup-tool-win",
+    "build:linux": "pkg . -t node16-linux-x64 -o dist/file-dedup-tool-linux",
+    "build:linux-arm": "pkg . -t node16-linux-arm64 -o dist/file-dedup-tool-linux-arm",
+    "build:alpine": "pkg . -t node16-alpine-x64 -o dist/file-dedup-tool-alpine",
+    "build:alpine-arm": "pkg . -t node16-alpine-arm64 -o dist/file-dedup-tool-alpine-arm",
+    "build:linux-static": "pkg . -t node16-linuxstatic-x64 -o dist/file-dedup-tool-linux-static",
+    "build:all": "npm run build:win && npm run build:linux && npm run build:linux-arm && npm run build:alpine && npm run build:alpine-arm && npm run build:linux-static",
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "init:db": "node server/scripts/initDb.js"
+  },
+  "pkg": {
+    "scripts": [
+      "server/**/*.js"
+    ],
+    "assets": [
+      "client/dist/**/*",
+      "config.json"
+    ],
+    "targets": [
+      "node16-win-x64",
+      "node16-linux-x64",
+      "node16-linux-arm64",
+      "node16-alpine-x64",
+      "node16-alpine-arm64",
+      "node16-linuxstatic-x64"
+    ],
+    "outputPath": "dist"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "fs-extra": "^11.2.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.6.5",
+    "uuid": "^11.1.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "eslint": "^8.55.0",
+    "nodemon": "^3.0.2",
+    "pkg": "^5.8.1",
+    "prettier": "^3.1.1"
+  }
+}

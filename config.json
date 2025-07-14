@@ -1,0 +1,24 @@
+
+{
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "phr123",
+    "database": "file_dedup"
+  },
+  "paths": {
+    "scanPaths": ["F:\\桌面\\项目"],
+    "outputPath": "C:\\Users\\ASUS\\Desktop"
+  },
+  "server": {
+    "port": 3000
+  },
+  "scan": {
+    "batchSize": 100,
+    "chunkSize": 1048576,
+    "excludeDirs": ["node_modules", ".git", "dist", "build"],
+    "excludeFiles": [".DS_Store", "Thumbs.db"],
+    "maxFileSize": 1073741824
+  }
+}
