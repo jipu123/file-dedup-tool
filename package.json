@@ -1,6 +1,6 @@
 {
   "name": "file-dedup-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "文件去重管理工具",
   "main": "server/app.js",
   "bin": "server/app.js",
