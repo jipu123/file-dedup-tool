@@ -42,7 +42,7 @@ async function startServer() {
     await initializeDatabase();
     
     const port = process.env.PORT || config.server.port || 3000;
-    app.listen(port, () => {
+    app.listen(port, '0.0.0.0', () => {
       logger.info(`Server is running on port ${port}`);
     });
   } catch (error) {
